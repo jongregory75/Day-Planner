@@ -1,13 +1,13 @@
 //Generates Date for current day in header
-
 $(document).ready(function () {
   $("#currentDay").text(moment().format("dddd, MMMM Do  YYYY"));
 
   function checkTime() {
+    //create currentHour for background color logic
     var currentHour = moment().hours();
+
     $(".time-block").each(function () {
       var blockHour = parseInt($(this).attr("id").split("-")[1]);
-
       //check the currentHour vs blockHour
       if (blockHour < currentHour) {
         $(this).addClass("past");
@@ -21,8 +21,11 @@ $(document).ready(function () {
 
   //event handler for save button
   $(".saveBtn").on("click", function () {
-    var value = $(this).sibling(".description").val();
+    var value = $(this).siblings(".description").val();
+
     var time = $(this).parent().attr("id");
+    console.log(time);
+    console.log(value);
     //put any description input into local storage
     localStorage.setItem(time, value);
   });
@@ -37,4 +40,6 @@ $(document).ready(function () {
   $("#hour-15 .description").val(localStorage.getItem("hour-15"));
   $("#hour-16 .description").val(localStorage.getItem("hour-16"));
   $("#hour-17 .description").val(localStorage.getItem("hour-17"));
+
+  checkTime();
 });
