@@ -38,7 +38,7 @@ THEN the saved events persist
 
 ### Repository Quality: 13%
 
-![ScreenShot](/assets/img/screenshot.jpg)
+![ScreenShot](/assets/img/screenshot.JPG)
 
 https://github.com/jongregory75/Day-Planner
 
